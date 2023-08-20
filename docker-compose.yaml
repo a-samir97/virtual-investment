@@ -1,3 +1,5 @@
+version: '3.9'
+
 services:
   db:
     image: postgres
@@ -9,11 +11,26 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_PORT=5432
       - POSTGRES_HOST=db
-  web:
-    build: .
-    # entrypoint: ./entrypoint.sh
+  frontend:
+    build:
+      context: ./investment_frontend
+      dockerfile: Dockerfile
+
+    ports:
+      - '3000:3000'
+
     volumes:
-      - ./:/app/
+      - ./frontend:/frontend
+
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./investment_backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/backend
     ports:
       - "8000:8000"
     environment:
