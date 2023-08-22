@@ -14,14 +14,15 @@ class CustomerSerializer(serializers.ModelSerializer):
 
 
 class AccountsSerializer(serializers.ModelSerializer):
+    total_gain_loss = serializers.CharField()
+    total_portfolio_value = serializers.CharField()
+
     class Meta:
         model = Account
-        fields = ['balance']
+        fields = ['balance', 'total_gain_loss', 'total_portfolio_value']
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
-        data['total_profit_loss'] = instance.total_gain_loss
-        data['total_portfolio_value'] = instance.total_portfolio_value
         data['transactions'] = TransactionSerializer(instance.transactions.all(), many=True).data
         return data
 

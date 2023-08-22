@@ -26,4 +26,3 @@ class AccountsViewSet(GenericViewSet, ListModelMixin, RetrieveModelMixin):
                 ), output_field=DecimalField())).order_by('-total')[:3]
         serializer = MostProfitableClientsSerializer(most_profitable_clients, many=True)
         return Response(serializer.data)
-
