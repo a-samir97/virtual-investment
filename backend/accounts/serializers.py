@@ -24,6 +24,7 @@ class AccountsSerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         data = super().to_representation(instance)
         data['transactions'] = TransactionSerializer(instance.transactions.all(), many=True).data
+        data['name'] = instance.customer.name
         return data
 
 

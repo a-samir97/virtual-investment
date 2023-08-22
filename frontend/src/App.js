@@ -46,7 +46,7 @@ function App() {
 
   return (
     <div className='App'>
-      <Navbar />
+      <Navbar name={accountInfo.name}/>
     <div style={{display: 'flex'}}>
       <div style={{width: '80%',}}>
         {accountInfo && <AccountInfo account={accountInfo}/>}

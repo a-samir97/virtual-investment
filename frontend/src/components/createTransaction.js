@@ -7,12 +7,9 @@ function CreateTransaction(props) {
 
     function handleChangeStock(e) {
         setStock(e.target.value)
-        console.log(params)
-        console.log(stock)
     }
     function handleChangeQuantity(e) {
         setQuantity(e.target.value)
-        console.log(quantity)
     }
 
     function handleSubmit(e){
@@ -28,10 +25,8 @@ function CreateTransaction(props) {
         }).then(resp => {
                 resp.json().then(data => {
                     if (resp.status !== 201){
-                        console.log(data)
                         alert(data['error'])
                     } else {
-                        console.log(data)
                         alert("Transaction created successfully")
                     }
 
