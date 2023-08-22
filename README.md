@@ -54,3 +54,5 @@ balance. There is no need to store unit price change logs for any stock.
 ## Improvements
 - improve UI
 - Handle more errors in frontend side
+- Use service layer in backend development to separate business from models
+- Added unittests in frontend side
