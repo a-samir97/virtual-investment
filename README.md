@@ -31,7 +31,8 @@ balance. There is no need to store unit price change logs for any stock.
 ![alt text](https://github.com/a-samir97/virtual-investment/blob/main/docs/stocks_endpoints.png)
 - Transactions API Endpoints
 ![alt text](https://github.com/a-samir97/virtual-investment/blob/main/docs/transactions_endpoints.png)
-
+- Accounts API Endpoints
+![alt text](https://github.com/a-samir97/virtual-investment/blob/main/docs/accounts_endpoints.png)
 
 ## Challenges
 - One of the most challenges in this task is frontend development, frontend development takes about 90% of the time.
