@@ -23,12 +23,21 @@ function CreateTransaction(props) {
             body: JSON.stringify({
                 "stock": stock,
                 "quantity": quantity,
-                "account": params['accountId'],
-                "purchase_price": 50,
+                "account": params['accountId']
             })
-        }).then(alert('transaction is successfully created.'))
+        }).then(resp => {
+                resp.json().then(data => {
+                    if (resp.status !== 201){
+                        console.log(data)
+                        alert(data['error'])
+                    } else {
+                        console.log(data)
+                        alert("Transaction created successfully")
+                    }
+
+                })
+        })
         .catch(error => {
-            console.log(error)
             alert('Please try again later')
         })
     }
@@ -40,7 +49,7 @@ function CreateTransaction(props) {
             <label for="stock">Stock</label>
             <select name="stock" onChange={handleChangeStock}>
             {props.stocks && props.stocks.map(stock =>(
-                <option value={stock.id}>{stock.name} | {stock.price} $</option>
+                <option value={stock.id}>{stock.name} | {stock.price}$ | {stock.quantity} shares</option>
             ))}
             </select>
 

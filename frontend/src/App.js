@@ -10,11 +10,13 @@ import getStocks from './api/getStocks';
 import getAccountInfo from './api/getAccountInfo';
 import CreateTransaction from './components/createTransaction';
 import getMostProfitableClients from './api/getMostProfitableClients';
+import getRecentStocks from './api/getRecentStocks';
 
 function App() {
   const [stocks, setStocks] = useState(null)
   const [accountInfo, setAccountInfo] = useState(null)
   const [clients, setClients] = useState(null)
+  const [recentStock, setRecentStock] = useState(null)
 
   const params = useParams();
 
@@ -36,6 +38,12 @@ function App() {
     .catch(error => console.error(error))
   }, []);
 
+  useEffect(() => {  
+    getRecentStocks() 
+    .then(data => setRecentStock(data))
+    .catch(error => console.log(error))
+  }, []);
+
   return (
     <div className='App'>
       <Navbar />
@@ -49,7 +57,7 @@ function App() {
         <CreateTransaction stocks={stocks}/>
         </div>
           <div>
-            <RecentStocks stocks={stocks}/>
+            { recentStock && <RecentStocks stocks={recentStock}/>}
             { clients && <MostProfitableClients clients={clients} />}
           </div>
 
