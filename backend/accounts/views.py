@@ -12,6 +12,13 @@ class CustomerModelViewSet(ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
 
+    def perform_create(self, serializer):
+        super().perform_create(serializer)
+        # link every customer to account
+        # every customer must has only one account
+        # for now default balance is 0
+        Account.objects.create(customer=serializer.instance)
+
 
 class AccountsViewSet(GenericViewSet, ListModelMixin, RetrieveModelMixin):
     queryset = Account.objects.all()
