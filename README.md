@@ -45,11 +45,11 @@ balance. There is no need to store unit price change logs for any stock.
 - `docker-compose up`
 
 ## Run unit test (backend side)
-- go to inside terminal of backend instance in docker
+- go to inside terminal of backend instance in docker `docker exec -it container_id`
 - run `python manage.py test`
  
 ## Create Super User
-- inside backend terminal instance
+- inside backend terminal instance `docker exec -it container_id`
 - put this command to create super user which helps you to login in django admin
 - `python manage.py createsuperuser`
 - put `username, email, password`
@@ -57,7 +57,7 @@ balance. There is no need to store unit price change logs for any stock.
 
 
 ## Improvements
-- improve UI
+- Improve UI
 - Handle more errors in frontend side
 - Use service layer in backend development to separate business from models
 - Added unittests in frontend side
