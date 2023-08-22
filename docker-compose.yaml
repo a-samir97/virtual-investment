@@ -13,24 +13,24 @@ services:
       - POSTGRES_HOST=db
   frontend:
     build:
-      context: ./investment_frontend
+      context: ./frontend
       dockerfile: Dockerfile
 
     ports:
       - '3000:3000'
 
     volumes:
-      - ./frontend:/frontend
+      - ./frontend:/app/frontend
 
     depends_on:
       - backend
 
   backend:
     build:
-      context: ./investment_backend
+      context: ./backend
       dockerfile: Dockerfile
     volumes:
-      - ./backend:/backend
+      - ./backend:/app/backend
     ports:
       - "8000:8000"
     environment:
