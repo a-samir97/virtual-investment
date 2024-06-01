@@ -33,7 +33,7 @@ jobs:
         python manage.py test
 
     - name: 'Qodana Scan'
-      uses: jetbrains-infra/qodana-action
+      uses: jetbrains-infra/qodana-action@v2023.3
       with:
         args: --apply_fixes
         pr-mode: false
