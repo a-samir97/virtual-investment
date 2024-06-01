@@ -35,6 +35,6 @@ jobs:
     - name: 'Qodana Scan'
       uses: JetBrains/qodana-action@v2023.1
       with:
-        args: --apply-fixes
+        # args: --apply-fixes
         pr-mode: false
         push-fixes: pull-request
