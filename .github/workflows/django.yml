@@ -1,5 +1,4 @@
-name: Qodana Django CI
-
+name: Django CI
 
 
 on:
@@ -34,7 +33,7 @@ jobs:
         python manage.py test
 
     - name: 'Qodana Scan'
-      uses: jetbrains-infra/qodana-action@v1
+      uses: jetbrains-infra/qodana-action
       with:
         args: --apply_fixes
         pr-mode: false
