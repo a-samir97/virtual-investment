@@ -32,3 +32,10 @@ jobs:
       run: |
         cd backend
         python manage.py test
+
+    - name: 'Qodana Scan'
+      uses: jetbrains-infra/qodana-action@v1
+      with:
+        args: --apply_fixes
+        pr-mode: false
+        push-fixes: pull-request
