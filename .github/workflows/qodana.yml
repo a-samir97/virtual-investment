@@ -1,0 +1,22 @@
+name: Django CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+        - uses: actions/checkout@v4
+        -   name: 'Qodana Scan'
+            uses: jetbrains-infra/qodana-action@v1
+            with:
+                args: --apply_fixes
+                pr-mode: false
+                push-fixes: pull-request
